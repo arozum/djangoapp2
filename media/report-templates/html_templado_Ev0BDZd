@@ -1,0 +1,16 @@
+<html>
+<head>
+        <title></title>
+</head>
+<body>
+        <h1>Invoice no. {{ id }}</h1>
+        <table>
+                {% for element in items %}
+                        <tr>
+                                <td>{{ element.name }}</td>
+                                <td>{{ element.price }}</td>
+                        </tr>
+                {% endfor %}
+        </table>
+</body>
+</html>
