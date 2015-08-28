@@ -12,12 +12,9 @@ from templado.functions import save_static_file, get_uploaded_static_files
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 
-from django.template import RequestContext
 from django.contrib.auth.models import User
- 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-
 from django.shortcuts import render
 
 def register(request):
