@@ -25,8 +25,17 @@ def register(request):
             return redirect('/templado/')
     else:
         form = UserCreationForm()
-    return render(request, "templado/register.html", {'form': form,    })
+    return render(request, 'templado/register.html', {'form': form,    })
 
+def must_login(func):
+	def _decorated(request, *args, **kwargs):
+		if not request.user.is_authenticated():
+			return redirect('/templado/login/')
+		else:
+			if not request.user.is_active:
+				return redirect(request, 'templado/banned.html', {})
+		return func(request,*args, **kwargs)
+	return _decorated   
     
 class ReportsListView(ListView):
     """

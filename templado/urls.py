@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 from django.contrib.auth.decorators import login_required
 from .views import ReportsListView, TemplatesListView, ReportFormView, DownloadReport, EditReportFormView, \
-    TemplateFormView, SearchView, HelpView, UploadStaticView
+    TemplateFormView, SearchView, HelpView, UploadStaticView, must_login
 
 
 urlpatterns = patterns('',
@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^regenerate/(?P<report>\d+)/$', EditReportFormView.as_view(), name='edit-report-form'),
     url(r'^reports$', ReportsListView.as_view(), name='report-list'),
     url(r'^download/(?P<report>\d+)/$', DownloadReport.as_view(), name='download-report'),
-    url(r'^help$', login_required(HelpView.as_view()), name='help'),
+    url(r'^help$', must_login(HelpView.as_view()), name='help'),
     url(r'^$', TemplatesListView.as_view(), name='template-list'),    
     url(r'^register/$' , 'templado.views.register', name='register'),
     url(r'^login/$', 'django.contrib.auth.views.login', name='login', kwargs={'template_name': 'templado/login.html'}),
