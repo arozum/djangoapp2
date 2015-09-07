@@ -38,8 +38,6 @@ def must_login(func):
 	return _decorated   
 
 def getNameDecorators(value):
-	mod = import_module('accounts')
-	view_func = getattr(mod,settings.TEMPLADO_DECORATOR_AUTH)
-	return get_callable(view_func())
-	#return value
+	func = get_callable(settings.TEMPLADO_DECORATOR_AUTH)
+	return func(value)
 	

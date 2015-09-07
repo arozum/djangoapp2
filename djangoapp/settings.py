@@ -99,8 +99,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-#LOGIN_URL = 'login/'
-#LOGOUT_URL = 'logout/'
-#LOGIN_REDIRECT_URL = '/templado/'
-#APPEND_SLASH=False 
-TEMPLADO_DECORATOR_AUTH = 'must_login(func)'
+
+LOGIN_REDIRECT_URL = '/templado/'
+
+TEMPLADO_DECORATOR_AUTH = 'accounts.views.must_login'
