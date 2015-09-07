@@ -53,17 +53,17 @@
                                 class="glyphicon glyphicon-question-sign"></i> Help</a>
                     </li>
                     {% if user.is_authenticated %}
-						<li class="{% is_active request 'templado:logout' %}">
-							<a href="{% url 'templado:logout' %}"><i
+						<li class="{% is_active request 'accounts:logout' %}">
+							<a href="{% url 'accounts:logout' %}"><i
                                 class="glyphicon glyphicon-question-sign"></i> Logout</a>
 						</li>
 					{% else %}
-						<li class="{% is_active request 'templado:login' %}">
-							<a href="{% url 'templado:login' %}"><i
+						<li class="{% is_active request 'accounts:login' %}">
+							<a href="{% url 'accounts:login' %}"><i
                                 class="glyphicon glyphicon-question-sign"></i> Login</a>
 						</li>
-						<li class="{% is_active request 'templado:register' %}">
-							<a href="{% url 'templado:register' %}"><i
+						<li class="{% is_active request 'accounts:register' %}">
+							<a href="{% url 'accounts:register' %}"><i
                                 class="glyphicon glyphicon-question-sign"></i> Register</a>
 						</li>	
 					{% endif %}

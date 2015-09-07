@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'bootstrap3',
     'templado',
+    'accounts',
 )
 
 FILE_UPLOAD_HANDLERS = (
@@ -98,7 +99,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-LOGIN_URL = 'login/'
-LOGOUT_URL = 'logout/'
-LOGIN_REDIRECT_URL = '/templado/'
-APPEND_SLASH=False 
+#LOGIN_URL = 'login/'
+#LOGOUT_URL = 'logout/'
+#LOGIN_REDIRECT_URL = '/templado/'
+#APPEND_SLASH=False 
+TEMPLADO_DECORATOR_AUTH = 'must_login(func)'

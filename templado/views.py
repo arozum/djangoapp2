@@ -16,26 +16,7 @@ from django.contrib.auth.models import User
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
-
-def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            new_user = form.save()
-            return redirect('/templado/')
-    else:
-        form = UserCreationForm()
-    return render(request, 'templado/register.html', {'form': form,    })
-
-def must_login(func):
-	def _decorated(request, *args, **kwargs):
-		if not request.user.is_authenticated():
-			return redirect('/templado/login/')
-		else:
-			if not request.user.is_active:
-				return redirect(request, 'templado/banned.html', {})
-		return func(request,*args, **kwargs)
-	return _decorated   
+from accounts.views import *
     
 class ReportsListView(ListView):
     """
